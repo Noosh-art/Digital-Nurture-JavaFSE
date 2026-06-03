@@ -1,0 +1,167 @@
+/* Universal Selector */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body Styling */
+body{
+    background:#f4f4f4;
+    background-image:url("https://picsum.photos/1200/800");
+    background-size:cover;
+    background-attachment:fixed;
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+    padding:20px;
+}
+
+/* Header */
+#mainHeader{
+    text-align:center;
+    color:white;
+    background:linear-gradient(to right,#007BFF,#00C6FF);
+    padding:20px;
+    margin-bottom:20px;
+}
+
+/* Navigation */
+nav{
+    background:rgba(0,0,0,0.8);
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-right:15px;
+}
+
+nav a:hover{
+    color:yellow;
+}
+
+/* Headings */
+h2{
+    color:#003366;
+    background:linear-gradient(to right,#cce5ff,#ffffff);
+    padding:10px;
+    margin-top:20px;
+}
+
+h3,p{
+    margin:10px 0;
+}
+
+/* Event Cards */
+.eventCard{
+    background:white;
+    border:2px solid gray;
+    padding:20px;
+    margin:15px;
+    border-radius:10px;
+}
+
+/* Typography */
+.description{
+    font-size:18px;
+    font-style:italic;
+    font-weight:500;
+    text-align:justify;
+    letter-spacing:1px;
+    line-height:1.8;
+}
+
+/* Images */
+img{
+    max-width:100%;
+    border-radius:8px;
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,td{
+    border:1px solid black;
+    padding:10px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+/* Form */
+form{
+    background:white;
+    padding:20px;
+    border:2px solid gray;
+    margin-top:20px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+}
+
+input:focus,
+textarea:focus{
+    outline:3px solid blue;
+}
+
+/* Buttons */
+button{
+    background:#007BFF;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+/* Multi Column */
+.newsSection{
+    column-count:2;
+    column-gap:30px;
+    column-rule:1px solid gray;
+}
+
+/* Footer */
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+/* Responsive */
+@media screen and (max-width:768px){
+
+    nav a{
+        display:block;
+        margin-bottom:10px;
+    }
+
+    body{
+        font-size:14px;
+    }
+
+    img{
+        width:100%;
+    }
+
+    .newsSection{
+        column-count:1;
+    }
+}

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Community Event Portal</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+margin:20px;
+}
+
+nav{
+background:#333;
+padding:10px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-right:15px;
+}
+
+#welcomeBanner{
+background:blue;
+color:white;
+padding:15px;
+margin-top:10px;
+}
+
+.highlight{
+background:yellow;
+padding:5px;
+}
+
+.imageBorder{
+border:2px solid black;
+}
+
+form{
+border:1px solid gray;
+padding:15px;
+margin-top:20px;
+}
+
+footer{
+margin-top:30px;
+background:#eee;
+padding:10px;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+
+<nav>
+<a href="#home">Home</a>
+<a href="#events">Events</a>
+<a href="#contact">Contact</a>
+<a href="help.html" target="_blank">Help</a>
+</nav>
+
+<!-- Main -->
+
+<section id="home">
+
+<div id="welcomeBanner">
+Welcome to Community Event Portal
+
+<span style="color:red;font-weight:bold;">
+50% OFF Early Registration
+</span>
+
+</div>
+
+<p class="highlight">
+Upcoming Community Events
+</p>
+
+</section>
+
+<section id="events">
+
+<h2>Past Events Gallery</h2>
+
+<table>
+
+<tr>
+
+<td>
+<img src="https://picsum.photos/200?1"
+width="200"
+class="imageBorder"
+title="Music Festival"
+alt="Music Festival"
+ondblclick="enlargeImage(this)">
+<p>Music Festival</p>
+</td>
+
+<td>
+<img src="https://picsum.photos/200?2"
+width="200"
+class="imageBorder"
+title="Sports Day"
+alt="Sports Day"
+ondblclick="enlargeImage(this)">
+<p>Sports Day</p>
+</td>
+
+<td>
+<img src="https://picsum.photos/200?3"
+width="200"
+class="imageBorder"
+title="Art Show"
+alt="Art Show"
+ondblclick="enlargeImage(this)">
+<p>Art Show</p>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="https://picsum.photos/200?4"
+width="200"
+class="imageBorder"
+title="Food Fair"
+alt="Food Fair"
+ondblclick="enlargeImage(this)">
+<p>Food Fair</p>
+</td>
+
+<td>
+<img src="https://picsum.photos/200?5"
+width="200"
+class="imageBorder"
+title="Dance Show"
+alt="Dance Show"
+ondblclick="enlargeImage(this)">
+<p>Dance Show</p>
+</td>
+
+<td>
+<img src="https://picsum.photos/200?6"
+width="200"
+class="imageBorder"
+title="Community Meet"
+alt="Community Meet"
+ondblclick="enlargeImage(this)">
+<p>Community Meet</p>
+</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<h2>Event Registration Form</h2>
+
+<form>
+
+Name:
+<br>
+<input type="text"
+placeholder="Enter Name"
+required
+autofocus>
+
+<br><br>
+
+Email:
+<br>
+<input type="email"
+placeholder="Enter Email"
+required>
+
+<br><br>
+
+Phone:
+<br>
+<input type="text"
+onblur="validatePhone()">
+
+<br><br>
+
+Date:
+<br>
+<input type="date"
+required>
+
+<br><br>
+
+Event Type:
+<br>
+
+<select id="eventPreference"
+onchange="showFee()">
+
+<option>Music</option>
+<option>Sports</option>
+<option>Food</option>
+
+</select>
+
+<br><br>
+
+Message:
+<br>
+
+<textarea
+id="feedback"
+onkeyup="countChars()"
+placeholder="Enter Message">
+</textarea>
+
+<br>
+
+Characters:
+<span id="count">0</span>
+
+<br><br>
+
+<button
+type="button"
+onclick="submitForm()">
+
+Register
+
+</button>
+
+<br><br>
+
+<output id="outputMsg"></output>
+
+</form>
+
+<h2>Video Invite</h2>
+
+<video
+width="400"
+controls
+oncanplay="videoReady()">
+
+<source
+src="https://www.w3schools.com/html/mov_bbb.mp4"
+type="video/mp4">
+
+</video>
+
+<br><br>
+
+<button onclick="savePreference()">
+Save Preference
+</button>
+
+<button onclick="clearPreference()">
+Clear Preferences
+</button>
+
+<br><br>
+
+<button onclick="findLocation()">
+Find Nearby Events
+</button>
+
+<p id="location"></p>
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>
+Email:
+community@gmail.com
+</p>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+Community Event Portal © 2026
+</footer>
+
+<script>
+
+function validatePhone(){
+alert("Phone number validated");
+}
+
+function showFee(){
+alert("Event Fee: ₹500");
+}
+
+function submitForm(){
+
+document.getElementById("outputMsg")
+.value="Registration Successful";
+
+alert("Registration Submitted");
+
+}
+
+function enlargeImage(img){
+img.style.width="400px";
+}
+
+function countChars(){
+
+let text=
+document.getElementById("feedback").value;
+
+document.getElementById("count")
+.innerHTML=text.length;
+
+}
+
+function videoReady(){
+console.log("Video Ready To Play");
+}
+
+window.onbeforeunload=function(){
+return "Unsaved data exists.";
+}
+
+function savePreference(){
+
+let value=
+document.getElementById(
+"eventPreference").value;
+
+localStorage.setItem(
+"eventType",
+value);
+
+alert("Preference Saved");
+
+}
+
+window.onload=function(){
+
+let saved=
+localStorage.getItem(
+"eventType");
+
+if(saved){
+
+document.getElementById(
+"eventPreference").value=saved;
+
+}
+
+}
+
+function clearPreference(){
+
+localStorage.clear();
+sessionStorage.clear();
+
+alert("Preferences Cleared");
+
+}
+
+function findLocation(){
+
+navigator.geolocation.getCurrentPosition(
+
+function(position){
+
+document.getElementById(
+"location").innerHTML=
+
+"Latitude: "
++ position.coords.latitude +
+
+"<br>Longitude: "
++ position.coords.longitude;
+
+},
+
+function(error){
+
+alert(
+"Location access denied or timeout"
+);
+
+},
+
+{
+enableHighAccuracy:true,
+timeout:10000
+}
+
+);
+
+}
+
+console.log("Portal Loaded");
+
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>
