@@ -1,0 +1,11 @@
+package Exercise7;
+
+public class MobileApp implements Observer {
+
+    public void update(double price){
+
+        System.out.println("Mobile App: Stock Price = " + price);
+
+    }
+
+}
